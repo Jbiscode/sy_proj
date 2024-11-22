@@ -67,58 +67,72 @@ function MainSlider() {
       </div>
 
       {/* Swiper */}
-      <Swiper
-        modules={[Autoplay, EffectFade]}
-        effect="fade"
-        autoplay={{
-          delay: 3000,
-          disableOnInteraction: false,
-        }}
-        loop={true}
-        style={{
-          width: "100%",
-          height: "100%",
-        }}>
-        <SwiperSlide>
-          <div
-            style={{
-              width: "75%",
-              height: "100vh",
-              margin: "0 auto",
-              backgroundImage: `url(${slide1})`, // import한 이미지 사용
-              backgroundSize: "contain",
-              backgroundPosition: "center",
-              backgroundRepeat: "no-repeat",
-            }}
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <div
-            style={{
-              width: "75%",
-              height: "100vh",
-              margin: "0 auto",
-              backgroundImage: `url(${slide2})`, // import한 이미지 사용
-              backgroundSize: "contain",
-              backgroundPosition: "center",
-              backgroundRepeat: "no-repeat",
-            }}
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <div
-            style={{
-              width: "75%",
-              height: "100vh",
-              margin: "0 auto",
-              backgroundImage: `url(${slide3})`, // import한 이미지 사용
-              backgroundSize: "contain",
-              backgroundPosition: "center",
-              backgroundRepeat: "no-repeat",
-            }}
-          />
-        </SwiperSlide>
-      </Swiper>
+      <div>
+        <Swiper
+          modules={[Autoplay, EffectFade]}
+          effect="fade"
+          autoplay={{
+            delay: 3000,
+            disableOnInteraction: false,
+          }}
+          loop={true}
+          style={{
+            width: "100%",
+            height: "100%",
+          }}>
+          <SwiperSlide>
+            <div
+              style={{
+                width: "75%",
+                height: "100vh",
+                margin: "0 auto",
+                backgroundImage: `url(${slide1})`, // import한 이미지 사용
+                backgroundSize: "contain",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+              }}
+            />
+          </SwiperSlide>
+          <SwiperSlide>
+            <div
+              style={{
+                width: "75%",
+                height: "100vh",
+                margin: "0 auto",
+                backgroundImage: `url(${slide2})`, // import한 이미지 사용
+                backgroundSize: "contain",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+              }}
+            />
+          </SwiperSlide>
+          <SwiperSlide>
+            <div
+              style={{
+                width: "75%",
+                height: "100vh",
+                margin: "0 auto",
+                backgroundImage: `url(${slide3})`, // import한 이미지 사용
+                backgroundSize: "contain",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+              }}
+            />
+          </SwiperSlide>
+        </Swiper>
+        <span
+          style={{
+            position: "absolute",
+            left: "45%",
+            bottom: "22%",
+            opacity: "0.3",
+            fontSize: "32px",
+            color: "#FF0000",
+            transform: "translateY(-50%) rotate(90deg)", // rotate 90도 추가하여 아래 방향으로 회전
+          }}>
+          &gt;&gt;
+        </span>
+      </div>
     </div>
   );
 }
