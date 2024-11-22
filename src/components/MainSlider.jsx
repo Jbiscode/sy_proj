@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import "swiper/css";
 import "swiper/css/effect-fade";
 import { Autoplay, EffectFade } from "swiper/modules";
@@ -8,7 +9,9 @@ import slide1 from "../assets/slide1.png";
 import slide2 from "../assets/slide2.png";
 import slide3 from "../assets/slide3.png";
 
-function MainSlider() {
+const MainSlider = () => {
+  const navigate = useNavigate();
+
   return (
     <div style={{ position: "relative", height: "100vh" }}>
       {/* 고정 텍스트 */}
@@ -55,7 +58,7 @@ function MainSlider() {
             e.target.style.transform = "scale(1.5)";
             e.target.style.borderColor = "#FF6B6B";
             setTimeout(() => {
-              console.log("scale");
+              navigate("/page1");
             }, 1500);
           }}
           onMouseOut={(e) => {
@@ -135,6 +138,6 @@ function MainSlider() {
       </div>
     </div>
   );
-}
+};
 
 export default MainSlider;

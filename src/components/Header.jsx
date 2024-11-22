@@ -1,51 +1,22 @@
-import { gsap } from "gsap";
-import { useEffect, useRef } from "react";
 import syLogo from "../assets/sy_logo.png";
 import "../styles/Header.css";
 
-function Header() {
-  const headerRef = useRef(null);
-  const logoRef = useRef(null);
-
-  useEffect(() => {
-    const initAnimation = () => {
-      logoRef.current.style.position = "fixed";
-      logoRef.current.style.top = "50%";
-      logoRef.current.style.left = "50%";
-      logoRef.current.style.transform = "translate(-50%, -50%)";
-      logoRef.current.style.width = "400px";
-      logoRef.current.style.zIndex = "1000";
-
-      headerRef.current.style.opacity = "0";
-      headerRef.current.style.transform = "translateY(-50px)";
-
-      const tl = gsap.timeline({ delay: 1 });
-
-      tl.to(logoRef.current, {
-        duration: 2,
-        width: "60px",
-        top: "30px",
-        left: "30px",
-        transform: "translate(0, 0)",
-        ease: "power2.inOut",
-      }).to(
-        headerRef.current,
-        {
-          duration: 0.5,
-          opacity: 1,
-          y: 0,
-          ease: "power2.out",
-        },
-        "-=0.3"
-      );
-    };
-
-    initAnimation();
-  }, []);
-
+// eslint-disable-next-line react/prop-types
+const Header = ({ headerRef, logoRef }) => {
   return (
-    <div>
-      <img ref={logoRef} src={syLogo} alt="SY Logo" />
+    <div style={{ height: "120px" }}>
+      <img
+        ref={logoRef}
+        style={{
+          width: "60px",
+          top: "30px",
+          left: "30px",
+          zIndex: "1000",
+          position: "fixed",
+        }}
+        src={syLogo}
+        alt="SY Logo"
+      />
       <header
         ref={headerRef}
         style={{
@@ -78,6 +49,6 @@ function Header() {
       </header>
     </div>
   );
-}
+};
 
 export default Header;
