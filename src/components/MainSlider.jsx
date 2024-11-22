@@ -33,7 +33,7 @@ function MainSlider() {
       <div
         style={{
           position: "absolute",
-          bottom: "40px",
+          bottom: "80px",
           left: "50%",
           transform: "translateX(-50%)",
           zIndex: 2,
@@ -44,13 +44,19 @@ function MainSlider() {
             fontSize: "20px",
             fontFamily: "GmarketSans",
             backgroundColor: "transparent",
-            border: "2px solid #000",
+            border: "0.3px solid #000",
             cursor: "pointer",
             transition: "all 0.3s ease",
           }}
           onMouseOver={(e) => {
-            e.target.style.backgroundColor = "#000";
+            e.target.style.backgroundColor = "#FF6B6B";
             e.target.style.color = "#fff";
+            e.target.style.transition = "transform 2s ease";
+            e.target.style.transform = "scale(1.5)";
+            e.target.style.borderColor = "#FF6B6B";
+            setTimeout(() => {
+              console.log("scale");
+            }, 1500);
           }}
           onMouseOut={(e) => {
             e.target.style.backgroundColor = "transparent";
