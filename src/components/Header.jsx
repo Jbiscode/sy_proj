@@ -34,7 +34,7 @@ const Header = ({ headerRef, logoRef }) => {
           style={{ maxWidth: "1200px", margin: "0 auto" }}>
           <h1
             style={{
-              fontSize: "16px",
+              fontSize: "14px",
               fontWeight: "400",
               lineHeight: "1.4",
               fontFamily: "'GmarketSans', sans-serif",
