@@ -37,7 +37,6 @@ const Page1 = () => {
           style={{
             scale: "1.4",
             width: "266px",
-            paddingLeft: "10px",
             // height: "auto",
           }}
         />
