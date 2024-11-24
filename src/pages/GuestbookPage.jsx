@@ -1,7 +1,9 @@
 import bcrypt from "bcryptjs";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import Header from "../components/Header";
-import "../styles/pagenation.css";
+import TomatoGuest from "../components/TomatoGuest";
+import "../styles/guestbook.css";
+import "../styles/pagination.css";
 import { supabase } from "../supabase";
 
 const ITEMS_PER_PAGE = 5; // 페이지당 항목 수
@@ -15,7 +17,7 @@ const GuestbookPage = () => {
   const [totalPages, setTotalPages] = useState(0);
 
   // 방명록 데이터 가져오기
-  const fetchEntries = async () => {
+  const fetchEntries = useCallback(async () => {
     const { count } = await supabase
       .from("guestbook")
       .select("*", { count: "exact" });
@@ -34,18 +36,23 @@ const GuestbookPage = () => {
       setGuestbookEntries(data);
       setTotalPages(Math.ceil(count / ITEMS_PER_PAGE));
     }
-  };
+  }, [currentPage]);
 
   // 방명록 데이터 작성
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     // 비밀번호 해시화
+    const koreanTime = new Date().toLocaleString("en-US", {
+      timeZone: "Asia/Seoul",
+    });
     const hashedPassword = await bcrypt.hash(password, 10);
 
     const { error } = await supabase
       .from("guestbook")
-      .insert([{ name, message, password: hashedPassword }]);
+      .insert([
+        { name, message, password: hashedPassword, created_at: koreanTime },
+      ]);
     if (error) {
       console.error("Error submitting entry:", error);
     } else {
@@ -114,89 +121,78 @@ const GuestbookPage = () => {
 
   useEffect(() => {
     fetchEntries();
-  }, [currentPage]); // currentPage가 변경될 때마다 데이터 다시 로드
+  }, [currentPage, fetchEntries]); // currentPage가 변경될 때마다 데이터 다시 로드
 
   return (
     <>
       <Header />
+      <div className="container">
+        <h1 className="tomato-title">
+          <span className="tomato-text" style={{ color: "#FF6347" }}>
+            토마토로
+          </span>{" "}
+          <span className="tomato-message-text">마음을 전해요</span>
+        </h1>
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            placeholder="이름"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            required
+          />
+          <textarea
+            placeholder="메시지"
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+            required></textarea>
+          <input
+            type="password"
+            placeholder="수정/삭제 비밀번호"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+          <button type="submit">등록</button>
+        </form>
 
-      <h1>방명록</h1>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="이름"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          required
-        />
-        <textarea
-          placeholder="메시지"
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
-          required></textarea>
-        <input
-          type="password"
-          placeholder="수정/삭제 비밀번호"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-        <button type="submit">등록</button>
-      </form>
-
-      <h2>방명록</h2>
-      <ul>
+        <h2>토마토 농장</h2>
         {guestbookEntries.map((entry) => (
-          <li key={entry.id}>
-            <strong>{entry.name}</strong>: {entry.message}{" "}
-            <em>({new Date(entry.created_at).toLocaleString()})</em>
-            <button
-              onClick={() => {
-                const inputPassword = prompt(
-                  "삭제를 위해 비밀번호를 입력해주세요:"
-                );
-                handleDelete(entry.id, inputPassword);
-              }}>
-              삭제
-            </button>
-            <button
-              onClick={() => {
-                const inputPassword = prompt(
-                  "수정을 위해 비밀번호를 입력해주세요:"
-                );
-                if (inputPassword) handleEdit(entry.id, inputPassword);
-              }}>
-              수정
-            </button>
-          </li>
+          <TomatoGuest
+            key={entry.id}
+            entry={entry}
+            onDelete={handleDelete}
+            onEdit={handleEdit}
+          />
         ))}
-      </ul>
+        {/* </div> */}
 
-      {/* 페이지네이션 UI */}
-      <div className="pagination">
-        <button
-          onClick={() => handlePageChange(currentPage - 1)}
-          disabled={currentPage === 1}>
-          이전
-        </button>
-
-        {[...Array(totalPages)].map((_, index) => (
+        {/* 페이지네이션 UI */}
+        <div className="pagination">
           <button
-            key={index + 1}
-            onClick={() => handlePageChange(index + 1)}
-            style={{
-              fontWeight: currentPage === index + 1 ? "bold" : "normal",
-              backgroundColor: currentPage === index + 1 ? "#eee" : "white",
-            }}>
-            {index + 1}
+            onClick={() => handlePageChange(currentPage - 1)}
+            disabled={currentPage === 1}>
+            이전
           </button>
-        ))}
 
-        <button
-          onClick={() => handlePageChange(currentPage + 1)}
-          disabled={currentPage === totalPages}>
-          다음
-        </button>
+          {[...Array(totalPages)].map((_, index) => (
+            <button
+              key={index + 1}
+              onClick={() => handlePageChange(index + 1)}
+              style={{
+                fontWeight: currentPage === index + 1 ? "bold" : "normal",
+                backgroundColor: currentPage === index + 1 ? "#eee" : "white",
+              }}>
+              {index + 1}
+            </button>
+          ))}
+
+          <button
+            onClick={() => handlePageChange(currentPage + 1)}
+            disabled={currentPage === totalPages}>
+            다음
+          </button>
+        </div>
       </div>
     </>
   );
