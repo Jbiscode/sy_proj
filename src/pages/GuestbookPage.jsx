@@ -153,7 +153,7 @@ const GuestbookPage = () => {
             onChange={(e) => setPassword(e.target.value)}
             required
           />
-          <button type="submit">등록</button>
+          <button type="submit">토마토심기</button>
         </form>
 
         <h2>토마토 농장</h2>

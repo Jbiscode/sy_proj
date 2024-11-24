@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import tomato from "../assets/tomato1.svg";
+import tomato from "../assets/tomato2.svg";
 import "../styles/guestbook.css";
 
 const TomatoGuest = ({ entry, onDelete, onEdit }) => (
