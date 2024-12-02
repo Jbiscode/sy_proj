@@ -18,7 +18,7 @@ const Home = () => {
       logoRef.current.style.zIndex = "1000";
 
       headerRef.current.style.opacity = "0";
-      headerRef.current.style.transform = "translateY(-50px)";
+      // headerRef.current.style.transform = "translateY(-50px)";
 
       const tl = gsap.timeline({ delay: 1 });
 

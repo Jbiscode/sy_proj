@@ -4,7 +4,7 @@ import "../styles/Header.css";
 // eslint-disable-next-line react/prop-types
 const Header = ({ headerRef, logoRef }) => {
   return (
-    <div style={{ height: "120px" }}>
+    <div style={{ height: "110px" }}>
       <img
         ref={logoRef}
         style={{
@@ -26,7 +26,7 @@ const Header = ({ headerRef, logoRef }) => {
           width: "100%",
           background: "#F5F5F1",
           zIndex: 999,
-          padding: "20px 30px",
+          padding: "25px 30px",
           borderBottom: "1px solid #E0E0E0",
         }}>
         <div
@@ -34,7 +34,7 @@ const Header = ({ headerRef, logoRef }) => {
           style={{ maxWidth: "1200px", margin: "0 auto" }}>
           <h1
             style={{
-              fontSize: "14px",
+              fontSize: "12px",
               fontWeight: "400",
               lineHeight: "1.4",
               fontFamily: "'GmarketSans', sans-serif",
