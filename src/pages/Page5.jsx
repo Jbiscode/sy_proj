@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
@@ -7,7 +8,6 @@ import slide1 from "../assets/slide1.png";
 import slide2 from "../assets/slide2.png";
 import slide3 from "../assets/slide3.png";
 import Header from "../components/Header";
-
 const data = [
   {
     id: 1,
@@ -53,14 +53,39 @@ const data = [
 
 const Page5 = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
-  // const [isContentVisible, setIsContentVisible] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+  const [showConfirmModal, setShowConfirmModal] = useState(false);
+  const [isButtonActive, setIsButtonActive] = useState(false);
+  const [loadingDots, setLoadingDots] = useState(".");
   const sliderRef = React.useRef(null);
+  const navigate = useNavigate();
 
-  // React.useEffect(() => {
-  //   setTimeout(() => {
-  //     setIsContentVisible(true);
-  //   }, 500);
-  // }, []);
+  useEffect(() => {
+    setShowModal(true);
+    const timer = setTimeout(() => {
+      setIsButtonActive(true);
+    }, 10000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
+    if (!isButtonActive) {
+      const interval = setInterval(() => {
+        setLoadingDots((dots) => (dots.length >= 3 ? "." : dots + "."));
+      }, 500);
+
+      return () => clearInterval(interval);
+    }
+  }, [isButtonActive]);
+
+  const handleSeedClick = () => {
+    setShowConfirmModal(true);
+  };
+
+  const handleConfirm = () => {
+    navigate("/guestbook");
+  };
 
   const settings = {
     dots: true,
@@ -100,7 +125,51 @@ const Page5 = () => {
     <>
       <Header />
       <Container>
-        <Title>Change!</Title>
+        {showModal && (
+          <ModalOverlay onClick={() => setShowModal(false)}>
+            <ModalContent onClick={(e) => e.stopPropagation()}>
+              <ModalTitle>토마토처럼 성장하는 이야기</ModalTitle>
+              <ModalText>
+                슬라이드를 넘기면서 저의 이야기를 확인해보세요! 각 토마토는 제
+                인생의 특별한 시기를 나타냅니다.
+                <br />
+                글을 보고 계시면 제가 곧 토마토씨앗을 준비해올게요!
+              </ModalText>
+              <ModalButton onClick={() => setShowModal(false)}>
+                보러가기
+              </ModalButton>
+            </ModalContent>
+          </ModalOverlay>
+        )}
+        {showConfirmModal && (
+          <ModalOverlay onClick={() => setShowConfirmModal(false)}>
+            <ModalContent onClick={(e) => e.stopPropagation()}>
+              <ModalTitle>토마토를 심으러 가시겠어요?</ModalTitle>
+              <ModalText>
+                아직 보지 않은 내용이 있을 수 있어요.
+                <br />
+                계속 보시겠습니까?
+              </ModalText>
+              <ConfirmButtonContainer>
+                <ConfirmButton onClick={() => setShowConfirmModal(false)}>
+                  더 볼래요
+                </ConfirmButton>
+                <ConfirmButton primary onClick={handleConfirm}>
+                  씨앗 받기
+                </ConfirmButton>
+              </ConfirmButtonContainer>
+            </ModalContent>
+          </ModalOverlay>
+        )}
+        <TitleContainer>
+          <TomatoButton
+            $isActive={isButtonActive}
+            disabled={!isButtonActive}
+            onClick={handleSeedClick}>
+            {isButtonActive ? "씨앗 받기" : `씨앗 준비중${loadingDots}`}
+          </TomatoButton>
+          <Title>Change!</Title>
+        </TitleContainer>
         <SubTitle>and me</SubTitle>
         <SliderContainer>
           <StyledSlider ref={sliderRef} {...settings}>
@@ -132,6 +201,14 @@ const Container = styled.div`
   min-height: calc(100vh - 80px);
   display: flex;
   flex-direction: column;
+`;
+
+const TitleContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0;
+  padding-right: 0;
 `;
 
 const Title = styled.h1`
@@ -244,6 +321,151 @@ const StoryText = styled.p`
   color: #444;
   margin: 0;
   font-family: "GmarketSans";
+`;
+
+const ModalOverlay = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+`;
+
+const ModalContent = styled.div`
+  background-color: white;
+  padding: 30px 25px;
+  border-radius: 15px;
+  width: 90%;
+  max-width: 350px;
+  text-align: center;
+  font-family: "GmarketSans";
+  animation: slideUp 0.5s ease-out;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+
+  @keyframes slideUp {
+    from {
+      transform: translateY(50px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+`;
+
+const ModalTitle = styled.h2`
+  font-size: 24px;
+  color: #2c786c;
+  margin-bottom: 20px;
+  font-weight: bold;
+  letter-spacing: -0.5px;
+`;
+
+const ModalText = styled.p`
+  font-size: 16px;
+  line-height: 1.8;
+  color: #333;
+  margin-bottom: 25px;
+  font-family: "GmarketSans";
+  word-break: keep-all;
+  white-space: pre-line;
+  letter-spacing: -0.3px;
+`;
+
+const ModalButton = styled.button`
+  background-color: #2c786c;
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: "GmarketSans";
+  letter-spacing: -0.3px;
+
+  &:hover {
+    background-color: #1f5f54;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(44, 120, 108, 0.3);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+`;
+
+const TomatoButton = styled.button`
+  padding: 8px 16px;
+  border-radius: 50px;
+  border: none;
+  font-size: 16px;
+  font-weight: bold;
+  font-family: "GmarketSans";
+  cursor: ${(props) => (props.$isActive ? "pointer" : "default")};
+  background-color: ${(props) => (props.$isActive ? "#FF6B6B" : "#9e9e9e")};
+  color: white;
+  transition: all 0.5s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-right: auto;
+  margin-left: 20px;
+  min-width: 110px;
+
+  &:hover {
+    transform: ${(props) => (props.$isActive ? "translateY(-2px)" : "none")};
+    background-color: ${(props) => (props.$isActive ? "#FF5252" : "#9e9e9e")};
+    box-shadow: ${(props) =>
+      props.$isActive
+        ? "0 4px 12px rgba(255, 107, 107, 0.3)"
+        : "0 2px 8px rgba(0, 0, 0, 0.1)"};
+  }
+
+  &:active {
+    transform: ${(props) => (props.$isActive ? "translateY(0)" : "none")};
+  }
+`;
+
+const ConfirmButtonContainer = styled.div`
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 20px;
+`;
+
+const ConfirmButton = styled.button`
+  background-color: ${(props) => (props.primary ? "#FF6B6B" : "#f5f5f5")};
+  color: ${(props) => (props.primary ? "white" : "#333")};
+  border: none;
+  padding: 12px 20px;
+  border-radius: 25px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: "GmarketSans";
+  letter-spacing: -0.3px;
+  flex: 1;
+  max-width: 120px;
+
+  &:hover {
+    transform: translateY(-2px);
+    background-color: ${(props) => (props.primary ? "#FF5252" : "#e5e5e5")};
+    box-shadow: ${(props) =>
+      props.primary
+        ? "0 4px 12px rgba(255, 107, 107, 0.3)"
+        : "0 4px 12px rgba(0, 0, 0, 0.1)"};
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
 `;
 
 export default Page5;
