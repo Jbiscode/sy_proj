@@ -2,3 +2,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* 추가적인 스타일 */
+html {
+  scroll-behavior: smooth;
+}
+
+/* 추가적인 애니메이션 스타일 */
+[data-aos] {
+  pointer-events: none;
+}
+[data-aos].aos-animate {
+  pointer-events: auto;
+}
