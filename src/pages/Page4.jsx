@@ -78,6 +78,7 @@ const Page4 = () => {
       {
         opacity: 1,
         rotate: 0,
+        x: 30,
         y: 40,
         duration: 0.8,
         ease: "power2.out",
@@ -113,7 +114,7 @@ const Page4 = () => {
       { opacity: 0, x: -50 },
       {
         opacity: 1,
-        x: 0,
+        x: 15,
         y: -50,
         duration: 1,
         ease: "power1.inOut",
@@ -192,9 +193,9 @@ const Page4 = () => {
                 ref={image2Ref}
                 src={Image4_2}
                 alt="자른 토마토"
-                className="w-96 h-96 object-contain mx-auto scale-150"
+                className="w-64 h-96 object-contain mx-auto scale-150"
               />
-              <p ref={text2Ref} className="text-[40px] pr-10 text-right">
+              <p ref={text2Ref} className="text-[40px] text-right">
                 <span className="font-bold">
                   토마토는
                   <br />
