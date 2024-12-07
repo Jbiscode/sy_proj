@@ -20,8 +20,8 @@
 .tomato-wrapper {
   position: relative;
   display: inline-block;
-  min-width: 169px;
-  min-height: 154px;
+  /* min-width: 169px; */
+  /* min-height: 154px; */
   width: auto;
   height: auto;
 }

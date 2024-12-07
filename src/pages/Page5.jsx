@@ -155,7 +155,7 @@ const Page5 = () => {
                   더 볼래요
                 </ConfirmButton>
                 <ConfirmButton primary onClick={handleConfirm}>
-                  씨앗 받기
+                  심으러 가기
                 </ConfirmButton>
               </ConfirmButtonContainer>
             </ModalContent>
