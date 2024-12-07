@@ -4,9 +4,10 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
 import styled from "styled-components";
-import slide1 from "../assets/slide1.png";
-import slide2 from "../assets/slide2.png";
-import slide3 from "../assets/slide3.png";
+import slide1 from "../assets/19-1.png";
+import slide2 from "../assets/20-1.jpeg";
+import slide3 from "../assets/21-1.png";
+import slide4 from "../assets/22-1.png";
 import Header from "../components/Header";
 const data = [
   {
@@ -41,7 +42,7 @@ const data = [
   },
   {
     id: 4,
-    image: "/images/tomato4.jpg",
+    image: slide4,
     title: "쿠마토",
     description:
       "완숙 토마토보다 약간 작고, 검은색을 띠지만, 유해산소를 예방하는 작용이 일반 토마토보다 무려 3배가 높아요. 과육도 단단하여 절대 쉽게 무르지 않는답니다!!",
@@ -406,7 +407,7 @@ const TomatoButton = styled.button`
   padding: 8px 16px;
   border-radius: 50px;
   border: none;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: bold;
   font-family: "GmarketSans";
   cursor: ${(props) => (props.$isActive ? "pointer" : "default")};
