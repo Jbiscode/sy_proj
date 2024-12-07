@@ -21,3 +21,10 @@
   src: url("../assets/fonts/GmarketSansTTF/GmarketSansTTFBold.ttf")
     format("truetype");
 }
+
+@font-face {
+  font-family: "GasoekOne";
+  font-weight: 500;
+  font-style: normal;
+  src: url("../assets/fonts/GasoekOne/GasoekOne-Regular.ttf") format("truetype");
+}

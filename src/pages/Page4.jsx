@@ -201,7 +201,7 @@ const Page4 = () => {
         ease: "power2.out",
         scrollTrigger: {
           trigger: text4Ref_1.current,
-          start: "top 85%",
+          start: "top 55%",
           end: "bottom 15%",
           toggleActions: "play none none reverse",
         },
@@ -218,7 +218,7 @@ const Page4 = () => {
         ease: "power2.out",
         scrollTrigger: {
           trigger: image4Ref_1.current,
-          start: "top 75%",
+          start: "top 55%",
           end: "bottom 25%",
           toggleActions: "play none none reverse",
         },
@@ -235,7 +235,7 @@ const Page4 = () => {
         ease: "power2.out",
         scrollTrigger: {
           trigger: text4Ref_2.current,
-          start: "top 75%",
+          start: "top 45%",
           end: "bottom 15%",
           toggleActions: "play none none reverse",
         },
@@ -252,7 +252,7 @@ const Page4 = () => {
         ease: "circ.in",
         scrollTrigger: {
           trigger: image4Ref_2.current,
-          start: "top 70%",
+          start: "top 60%",
           end: "bottom 25%",
           toggleActions: "play none none reverse",
         },
@@ -270,7 +270,7 @@ const Page4 = () => {
         ease: "power2.out",
         scrollTrigger: {
           trigger: text5Ref_1.current,
-          start: "top 85%",
+          start: "top 65%",
           end: "bottom 15%",
           toggleActions: "play none none reverse",
         },
@@ -287,7 +287,7 @@ const Page4 = () => {
         ease: "power2.out",
         scrollTrigger: {
           trigger: image5Ref_1.current,
-          start: "top 75%",
+          start: "top 60%",
           end: "bottom 25%",
           toggleActions: "play none none reverse",
         },
@@ -304,7 +304,7 @@ const Page4 = () => {
         ease: "power2.out",
         scrollTrigger: {
           trigger: text5Ref_2.current,
-          start: "top 75%",
+          start: "top 55%",
           end: "bottom 15%",
           toggleActions: "play none none reverse",
         },
@@ -321,7 +321,7 @@ const Page4 = () => {
         ease: "power2.out",
         scrollTrigger: {
           trigger: image5Ref_2.current,
-          start: "top 70%",
+          start: "top 55%",
           end: "bottom 25%",
           toggleActions: "play none none reverse",
         },

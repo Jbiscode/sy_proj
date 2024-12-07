@@ -62,6 +62,7 @@ const Page5 = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     setShowModal(true);
     const timer = setTimeout(() => {
       setIsButtonActive(true);
