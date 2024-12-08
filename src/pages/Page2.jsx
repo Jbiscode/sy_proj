@@ -57,13 +57,13 @@ const Page2 = () => {
       gsap.fromTo(
         text3Ref_1.current,
         { opacity: 0 },
-        { opacity: 1, duration: 1, ease: "power2.in", delay: 4.4 }
+        { opacity: 1, duration: 0.5, ease: "power2.in", delay: 4.9 }
       );
 
       gsap.fromTo(
         text3Ref_2.current,
         { opacity: 0 },
-        { opacity: 1, duration: 1, ease: "power2.in", delay: 6 }
+        { opacity: 1, duration: 0.5, ease: "power2.in", delay: 6.3 }
       );
 
       gsap.fromTo(
