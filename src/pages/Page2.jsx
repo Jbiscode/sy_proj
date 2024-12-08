@@ -13,7 +13,8 @@ const Page2 = () => {
   const numberImgRef = useRef(null);
   const text2Ref = useRef(null);
   const image2Ref = useRef(null);
-  const text3Ref = useRef(null);
+  const text3Ref_1 = useRef(null);
+  const text3Ref_2 = useRef(null);
   const image3Ref = useRef(null);
   const text4Ref = useRef(null);
 
@@ -29,9 +30,52 @@ const Page2 = () => {
         {
           opacity: 1,
           y: 0,
+          delay: 0.2,
           duration: 1,
           ease: "expo.in",
         }
+      );
+
+      gsap.fromTo(
+        numberImgRef.current,
+        { opacity: 0 },
+        { opacity: 1, duration: 1, ease: "expo.in", delay: 1.5 }
+      );
+
+      gsap.fromTo(
+        text2Ref.current,
+        { opacity: 0 },
+        { opacity: 1, duration: 1, ease: "expo.in", delay: 2.4 }
+      );
+
+      gsap.fromTo(
+        image2Ref.current,
+        { opacity: 0 },
+        { opacity: 1, duration: 1, ease: "expo.in", delay: 4.4 }
+      );
+
+      gsap.fromTo(
+        text3Ref_1.current,
+        { opacity: 0 },
+        { opacity: 1, duration: 1, ease: "power2.in", delay: 4.4 }
+      );
+
+      gsap.fromTo(
+        text3Ref_2.current,
+        { opacity: 0 },
+        { opacity: 1, duration: 1, ease: "power2.in", delay: 6 }
+      );
+
+      gsap.fromTo(
+        image3Ref.current,
+        { opacity: 0 },
+        { opacity: 1, duration: 1, ease: "expo.in", delay: 6 }
+      );
+
+      gsap.fromTo(
+        text4Ref.current,
+        { opacity: 0 },
+        { opacity: 1, duration: 1, ease: "expo.in", delay: 8 }
       );
     }, 300);
 
@@ -46,20 +90,21 @@ const Page2 = () => {
       <div className="min-h-screen bg-white overflow-hidden">
         <div className="max-w-5xl mx-auto px-4">
           <section className="flex flex-col items-end pt-3 pb-20">
-            <p ref={text1Ref} className="text-[30px] text-right font-bold">
+            <p
+              ref={text1Ref}
+              className="text-[30px] text-right font-bold opacity-0">
               <span className="text-[#FF6347]">토마토</span>는
               <br />
               <span>전 세계에서</span>
             </p>
 
-            <div className="relative">
+            <div ref={numberImgRef} className="relative opacity-0">
               <p
                 style={{ fontFamily: "GmarketSans" }}
                 className="text-[#FF0000] text-[100px] text-right font-extrabold leading-tight">
                 5,- - -
               </p>
               <img
-                ref={numberImgRef}
                 className="absolute top-6 left-20 w-[80%]"
                 src={page2_1}
                 alt="토마토"
@@ -67,7 +112,7 @@ const Page2 = () => {
             </div>
             <p
               ref={text2Ref}
-              className="text-[26px] font-bold text-right relative">
+              className="text-[26px] font-bold text-right relative opacity-0">
               <img
                 ref={image2Ref}
                 className="absolute -top-10 -left-48 w-full scale-125"
@@ -85,18 +130,18 @@ const Page2 = () => {
                 className="text-[26px] font-bold text-left mt-20 relative">
                 <img
                   ref={image3Ref}
-                  className="absolute -top-10 left-48 w-full scale-125"
+                  className="absolute -top-10 left-48 w-full scale-125 opacity-0"
                   src={page2_3}
                   alt="토마토"
                 />
-                <span ref={text3Ref}>
-                  <span>
+                <span>
+                  <span ref={text3Ref_1} className="opacity-0">
                     어떤{" "}
                     <strong className="font-extrabold text-[40px]">모양</strong>
                     이든
                   </span>
                   <br />
-                  <span>
+                  <span ref={text3Ref_2} className="opacity-0">
                     어떤{" "}
                     <strong className="font-extrabold text-[40px]">맛</strong>
                     이든
@@ -107,7 +152,7 @@ const Page2 = () => {
 
             <p
               ref={text4Ref}
-              className="text-[30px] font-bold text-right mt-12">
+              className="text-[30px] font-bold text-right mt-12 opacity-0">
               그것이{" "}
               <span
                 style={{ fontFamily: "GmarketSans" }}

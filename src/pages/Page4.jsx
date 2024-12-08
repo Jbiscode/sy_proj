@@ -379,7 +379,7 @@ const Page4 = () => {
           {/* 첫 번째 섹션 */}
           <section className="flex flex-col items-center text-center">
             <div className="space-y-4 font-bold">
-              <h2 ref={title1Ref} className="text-[30px] text-right">
+              <h2 ref={title1Ref} className="text-[30px] text-right opacity-0">
                 자연스러움과
                 <br />
                 순수함을 상징하는
@@ -394,7 +394,7 @@ const Page4 = () => {
                 alt="삼단 토마토"
                 className="w-72 h-72 object-contain mx-auto"
               />
-              <p ref={text1Ref} className="text-[26px] text-right">
+              <p ref={text1Ref} className="text-[26px] text-right opacity-0">
                 보는 이에게
                 <br />
                 소박한 아름다움을
