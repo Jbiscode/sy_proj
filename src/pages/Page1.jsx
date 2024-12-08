@@ -57,7 +57,7 @@ const Page1 = () => {
             boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
             transition: "all 0.3s ease",
           }}
-          onMouseOver={(e) => {
+          onClick={(e) => {
             e.target.style.boxShadow = "0 4px 8px rgba(0,0,0,0.15)";
             e.target.style.transition = "transform 2s ease";
             e.target.style.transform = "translateX(-50%) scale(1.4)";

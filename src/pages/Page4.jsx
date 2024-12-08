@@ -45,325 +45,328 @@ const Page4 = () => {
   const text7Ref_2 = useRef(null);
 
   useEffect(() => {
-    // 첫 번째 섹션 애니메이션
-    gsap.fromTo(
-      title1Ref.current,
-      { opacity: 0, y: 100 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 1.2,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: title1Ref.current,
-          start: "top 80%",
-          end: "bottom 20%",
-          toggleActions: "play none none reverse",
-        },
-      }
-    );
+    window.scrollTo({ top: 0, behavior: "instant" });
+    setTimeout(() => {
+      // 첫 번째 섹션 애니메이션
+      gsap.fromTo(
+        title1Ref.current,
+        { opacity: 0, y: 100 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1.2,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: title1Ref.current,
+            start: "top 80%",
+            end: "bottom 20%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
 
-    gsap.fromTo(
-      image1Ref.current,
-      { opacity: 0, scale: 0.8 },
-      {
-        opacity: 1,
-        scale: 1,
-        duration: 1.5,
-        ease: "back.out(1.7)",
-        scrollTrigger: {
-          trigger: image1Ref.current,
-          start: "top 75%",
-          end: "bottom 25%",
-          toggleActions: "play none none reverse",
-        },
-      }
-    );
+      gsap.fromTo(
+        image1Ref.current,
+        { opacity: 0, scale: 0.8 },
+        {
+          opacity: 1,
+          scale: 1,
+          duration: 1.5,
+          ease: "back.out(1.7)",
+          scrollTrigger: {
+            trigger: image1Ref.current,
+            start: "top 75%",
+            end: "bottom 25%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
 
-    gsap.fromTo(
-      text1Ref.current,
-      { opacity: 0, y: 50 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 1,
-        delay: 0.3,
-        ease: "power1.out",
-        scrollTrigger: {
-          trigger: text1Ref.current,
-          start: "top 85%",
-          end: "bottom 15%",
-          toggleActions: "play none none reverse",
-        },
-      }
-    );
+      gsap.fromTo(
+        text1Ref.current,
+        { opacity: 0, y: 50 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          delay: 0.3,
+          ease: "power1.out",
+          scrollTrigger: {
+            trigger: text1Ref.current,
+            start: "top 85%",
+            end: "bottom 15%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
 
-    // 두 번째 섹션 애니메이션
-    gsap.fromTo(
-      title2Ref.current,
-      { opacity: 0, rotate: -15, y: 40 },
-      {
-        opacity: 1,
-        rotate: 0,
-        x: 30,
-        y: 40,
-        duration: 0.8,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: title2Ref.current,
-          start: "top 75%",
-          end: "bottom 25%",
-          toggleActions: "play none none reverse",
-        },
-      }
-    );
+      // 두 번째 섹션 애니메이션
+      gsap.fromTo(
+        title2Ref.current,
+        { opacity: 0, rotate: -15, y: 40 },
+        {
+          opacity: 1,
+          rotate: 0,
+          x: 30,
+          y: 40,
+          duration: 0.8,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: title2Ref.current,
+            start: "top 75%",
+            end: "bottom 25%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
 
-    gsap.fromTo(
-      image2Ref.current,
-      { opacity: 0, scale: 1.5, x: -120 },
-      {
-        opacity: 1,
-        scale: 1.5,
-        x: 0,
-        duration: 2,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: image2Ref.current,
-          start: "top 50%",
-          end: "bottom 30%",
-          toggleActions: "play none none reverse",
-        },
-      }
-    );
+      gsap.fromTo(
+        image2Ref.current,
+        { opacity: 0, scale: 1.5, x: -120 },
+        {
+          opacity: 1,
+          scale: 1.5,
+          x: 0,
+          duration: 2,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: image2Ref.current,
+            start: "top 50%",
+            end: "bottom 30%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
 
-    gsap.fromTo(
-      text2Ref.current,
-      { opacity: 0, x: -50 },
-      {
-        opacity: 1,
-        x: 15,
-        y: -50,
-        duration: 1,
-        ease: "power1.inOut",
-        scrollTrigger: {
-          trigger: text2Ref.current,
-          start: "top 80%",
-          end: "bottom 20%",
-          toggleActions: "play none none reverse",
-        },
-      }
-    );
+      gsap.fromTo(
+        text2Ref.current,
+        { opacity: 0, x: -50 },
+        {
+          opacity: 1,
+          x: 15,
+          y: -50,
+          duration: 1,
+          ease: "power1.inOut",
+          scrollTrigger: {
+            trigger: text2Ref.current,
+            start: "top 80%",
+            end: "bottom 20%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
 
-    // 세번째 섹션 애니메이션
-    gsap.fromTo(
-      text3Ref.current,
-      { opacity: 0, y: 30, x: 40 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 1.5,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: text3Ref.current,
-          start: "top 85%",
-          end: "bottom 15%",
-          toggleActions: "play none none reverse",
-        },
-      }
-    );
+      // 세번째 섹션 애니메이션
+      gsap.fromTo(
+        text3Ref.current,
+        { opacity: 0, y: 30, x: 40 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1.5,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: text3Ref.current,
+            start: "top 85%",
+            end: "bottom 15%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
 
-    gsap.fromTo(
-      image3Ref.current,
-      { opacity: 0, scale: 1.5, x: +120 },
-      {
-        opacity: 1,
-        scale: 1.5,
-        x: 0,
-        duration: 2,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: image3Ref.current,
-          start: "top 50%",
-          end: "bottom 30%",
-          toggleActions: "play none none reverse",
-        },
-      }
-    );
+      gsap.fromTo(
+        image3Ref.current,
+        { opacity: 0, scale: 1.5, x: +120 },
+        {
+          opacity: 1,
+          scale: 1.5,
+          x: 0,
+          duration: 2,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: image3Ref.current,
+            start: "top 50%",
+            end: "bottom 30%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
 
-    // 네번째 섹션 애니메이션
-    gsap.fromTo(
-      text4Ref_1.current,
-      { opacity: 0, y: 30 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 1.5,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: text4Ref_1.current,
-          start: "top 55%",
-          end: "bottom 15%",
-          toggleActions: "play none none reverse",
-        },
-      }
-    );
+      // 네번째 섹션 애니메이션
+      gsap.fromTo(
+        text4Ref_1.current,
+        { opacity: 0, y: 30 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1.5,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: text4Ref_1.current,
+            start: "top 55%",
+            end: "bottom 15%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
 
-    gsap.fromTo(
-      image4Ref_1.current,
-      { opacity: 0, x: -50 },
-      {
-        opacity: 1,
-        x: 10,
-        duration: 1.5,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: image4Ref_1.current,
-          start: "top 55%",
-          end: "bottom 25%",
-          toggleActions: "play none none reverse",
-        },
-      }
-    );
+      gsap.fromTo(
+        image4Ref_1.current,
+        { opacity: 0, x: -50 },
+        {
+          opacity: 1,
+          x: 10,
+          duration: 1.5,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: image4Ref_1.current,
+            start: "top 55%",
+            end: "bottom 25%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
 
-    gsap.fromTo(
-      text4Ref_2.current,
-      { opacity: 0, y: 30 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 1.5,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: text4Ref_2.current,
-          start: "top 45%",
-          end: "bottom 15%",
-          toggleActions: "play none none reverse",
-        },
-      }
-    );
+      gsap.fromTo(
+        text4Ref_2.current,
+        { opacity: 0, y: 30 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1.5,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: text4Ref_2.current,
+            start: "top 55%",
+            end: "bottom 15%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
 
-    gsap.fromTo(
-      image4Ref_2.current,
-      { opacity: 0, x: 50 },
-      {
-        opacity: 1,
-        x: 0,
-        duration: 1.3,
-        ease: "circ.in",
-        scrollTrigger: {
-          trigger: image4Ref_2.current,
-          start: "top 60%",
-          end: "bottom 25%",
-          toggleActions: "play none none reverse",
-        },
-      }
-    );
+      gsap.fromTo(
+        image4Ref_2.current,
+        { opacity: 0, x: 50 },
+        {
+          opacity: 1,
+          x: 0,
+          duration: 1.3,
+          ease: "circ.in",
+          scrollTrigger: {
+            trigger: image4Ref_2.current,
+            start: "top 70%",
+            end: "bottom 15%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
 
-    // 다섯번째 섹션 애니메이션
-    gsap.fromTo(
-      text5Ref_1.current,
-      { opacity: 0, y: 30 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 1.5,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: text5Ref_1.current,
-          start: "top 65%",
-          end: "bottom 15%",
-          toggleActions: "play none none reverse",
-        },
-      }
-    );
+      // 다섯번째 섹션 애니메이션
+      gsap.fromTo(
+        text5Ref_1.current,
+        { opacity: 0, y: 30 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1.5,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: text5Ref_1.current,
+            start: "top 65%",
+            end: "bottom 15%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
 
-    gsap.fromTo(
-      image5Ref_1.current,
-      { opacity: 0, y: 50 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 1.5,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: image5Ref_1.current,
-          start: "top 60%",
-          end: "bottom 25%",
-          toggleActions: "play none none reverse",
-        },
-      }
-    );
+      gsap.fromTo(
+        image5Ref_1.current,
+        { opacity: 0, y: 50 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1.5,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: image5Ref_1.current,
+            start: "top 70%",
+            end: "bottom 15%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
 
-    gsap.fromTo(
-      text5Ref_2.current,
-      { opacity: 0, y: 30 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 1.5,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: text5Ref_2.current,
-          start: "top 55%",
-          end: "bottom 15%",
-          toggleActions: "play none none reverse",
-        },
-      }
-    );
+      gsap.fromTo(
+        text5Ref_2.current,
+        { opacity: 0, y: 30 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1.5,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: text5Ref_2.current,
+            start: "top 55%",
+            end: "bottom 15%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
 
-    gsap.fromTo(
-      image5Ref_2.current,
-      { opacity: 0, y: 50 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 1.5,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: image5Ref_2.current,
-          start: "top 55%",
-          end: "bottom 25%",
-          toggleActions: "play none none reverse",
-        },
-      }
-    );
+      gsap.fromTo(
+        image5Ref_2.current,
+        { opacity: 0, y: 50 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1.5,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: image5Ref_2.current,
+            start: "top 65%",
+            end: "bottom 15%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
 
-    // 여섯번째 섹션 애니메이션
-    gsap.fromTo(
-      text6Ref.current,
-      { opacity: 0, y: 30 },
-      {
-        opacity: 1,
-        y: 0,
-        x: 30,
-        duration: 1.5,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: text6Ref.current,
-          start: "top 55%",
-          end: "bottom 15%",
-          toggleActions: "play none none reverse",
-        },
-      }
-    );
+      // 여섯번째 섹션 애니메이션
+      gsap.fromTo(
+        text6Ref.current,
+        { opacity: 0, y: 30 },
+        {
+          opacity: 1,
+          y: 0,
+          x: 30,
+          duration: 1.5,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: text6Ref.current,
+            start: "top 55%",
+            end: "bottom 15%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
 
-    gsap.fromTo(
-      image6Ref.current,
-      { opacity: 0, y: 50 },
-      {
-        opacity: 1,
-        y: 40,
-        scale: 1.3,
-        duration: 1.3,
-        ease: "sine.in",
-        scrollTrigger: {
-          trigger: image6Ref.current,
-          start: "top 55%",
-          end: "bottom 25%",
-          toggleActions: "play none none reverse",
-        },
-      }
-    );
+      gsap.fromTo(
+        image6Ref.current,
+        { opacity: 0, y: 50 },
+        {
+          opacity: 1,
+          y: 40,
+          scale: 1.3,
+          duration: 1.3,
+          ease: "sine.in",
+          scrollTrigger: {
+            trigger: image6Ref.current,
+            start: "top 55%",
+            end: "bottom 25%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
+    }, 300);
 
     return () => {
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());

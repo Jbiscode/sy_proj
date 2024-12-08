@@ -62,7 +62,7 @@ const Page5 = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    window.scrollTo({ top: 0, behavior: "instant" });
     setShowModal(true);
     const timer = setTimeout(() => {
       setIsButtonActive(true);
@@ -203,6 +203,7 @@ const Container = styled.div`
   min-height: calc(100vh - 80px);
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 `;
 
 const TitleContainer = styled.div`
@@ -408,7 +409,7 @@ const TomatoButton = styled.button`
   padding: 8px 16px;
   border-radius: 50px;
   border: none;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: bold;
   font-family: "GmarketSans";
   cursor: ${(props) => (props.$isActive ? "pointer" : "default")};
