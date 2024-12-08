@@ -153,7 +153,7 @@ const Page3 = () => {
           ease: "power2.out",
           scrollTrigger: {
             trigger: text3Ref_2.current,
-            start: "top 80%",
+            start: "top 85%",
             toggleActions: "play none none reverse",
           },
         }
@@ -168,7 +168,7 @@ const Page3 = () => {
     <>
       <Header className="sticky top-0 left-0 right-0 z-50 bg-white shadow-md" />
       <div className="min-h-screen bg-white overflow-hidden">
-        <div className="max-w-5xl mx-auto px-4 py-12">
+        <div className="max-w-5xl mx-auto px-4">
           <section className="flex flex-col items-end pb-44">
             <p className="text-[30px] text-right">
               <span ref={text1Ref_1} className="font-extrabold text-[60px]">
