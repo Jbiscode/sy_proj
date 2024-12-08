@@ -118,7 +118,7 @@ const Page3 = () => {
           scrollTrigger: {
             trigger: text3Ref_1.current,
             start: "top 50%",
-            toggleActions: "play none none reverse",
+            toggleActions: "play none none",
           },
         }
       );
@@ -135,7 +135,7 @@ const Page3 = () => {
           scrollTrigger: {
             trigger: image3Ref.current,
             start: "top 70%",
-            toggleActions: "play none none reverse",
+            toggleActions: "play none none",
           },
         }
       );
@@ -152,7 +152,7 @@ const Page3 = () => {
           scrollTrigger: {
             trigger: text3Ref_2.current,
             start: "top 85%",
-            toggleActions: "play none none reverse",
+            toggleActions: "play none none",
           },
         }
       );

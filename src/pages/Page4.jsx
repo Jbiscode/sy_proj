@@ -41,6 +41,17 @@ const Page4 = () => {
   const text7Ref_1 = useRef(null);
   const image7Ref = useRef(null);
   const text7Ref_2 = useRef(null);
+  // 컴포넌트 마운트 시 새로고침을 위한 useEffect
+  useEffect(() => {
+    // 페이지가 새로고침된 적이 없는 경우에만 새로고침 실행
+    if (!window.location.hash) {
+      window.location.hash = "reloaded";
+      window.location.reload();
+    } else {
+      // 해시 제거
+      window.location.hash = "";
+    }
+  }, []);
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "instant" });
