@@ -17,8 +17,6 @@ import Image4_12 from "../assets/16-1.jpeg";
 import Image4_13 from "../assets/17-1.png";
 import Header from "../components/Header";
 
-gsap.registerPlugin(ScrollTrigger);
-
 const Page4 = () => {
   const navigate = useNavigate();
   // 각 요소에 대한 개별 ref 생성

@@ -7,8 +7,6 @@ import page2_2 from "../assets/7-2.png";
 import page2_3 from "../assets/7-3.png";
 import Header from "../components/Header";
 
-gsap.registerPlugin(ScrollTrigger);
-
 const Page2 = () => {
   const navigate = useNavigate();
   const text1Ref = useRef(null);

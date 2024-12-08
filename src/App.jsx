@@ -1,3 +1,5 @@
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import GuestbookPage from "./pages/GuestbookPage";
 import Home from "./pages/Home";
@@ -6,6 +8,8 @@ import Page2 from "./pages/Page2";
 import Page3 from "./pages/Page3";
 import Page4 from "./pages/Page4";
 import Page5 from "./pages/Page5";
+
+gsap.registerPlugin(ScrollTrigger);
 
 function App() {
   return (

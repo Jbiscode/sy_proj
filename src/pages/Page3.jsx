@@ -8,8 +8,6 @@ import Image3_2 from "../assets/8-2.png";
 import Image3_3 from "../assets/9-1.jpeg";
 import Header from "../components/Header";
 
-gsap.registerPlugin(ScrollTrigger);
-
 const Page3 = () => {
   const navigate = useNavigate();
   const text1Ref_1 = useRef(null);
